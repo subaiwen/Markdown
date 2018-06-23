@@ -26,4 +26,4 @@ df_sb %>%
 
 ```
 
-![sunburst](C:\Users\igola\Desktop\sunburst.png)
+![sunburst](https://imgur.com/ZY9VKc2.png)
