@@ -20,7 +20,7 @@ df_sb <- mtcars %>%
 ### Create a Sunburst
 ```R
 df_sb %>%
-  ungroup()  #ungroup before selecting necessary columns
+  ungroup() %>% #ungroup before selecting necessary columns
   select(path, num) %>% 
   sunburst() #this is a html widget
 
