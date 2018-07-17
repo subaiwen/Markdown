@@ -60,9 +60,9 @@ sp + scale_color_manual(breaks = c("8", "6", "4"),
 
 ##### 1.3.1 Use RColorBrewer palettes
 
-<p>The color palettes available in the ***RColorBrewer*** package are described here : <a href="/english/wiki/colors-in-r">color in R</a>.</p>
+The color palettes available in the ***RColorBrewer*** package are described here : <a href="/english/wiki/colors-in-r">color in R</a>.
 
-<p>Use <code>display.brewer.all()</code> to see all available choices in the package ***RColorBrewer*** </p>
+Use <code>display.brewer.all()</code> to see all available choices in the package ***RColorBrewer*** 
 
 ```r
 # Box plot
