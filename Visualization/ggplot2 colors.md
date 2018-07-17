@@ -97,9 +97,9 @@ sp+scale_color_manual(values=wes_palette(n=3, name="GrandBudapest"))
 
 The functions to use are :
 
-- **scale_colour_grey()** for points, lines, etc
+- <code>scale_colour_grey()</code> for points, lines, etc
 
-- **scale_fill_grey()** for box plot, bar plot, violin plot, etc
+- <code>scale_fill_grey()</code> for box plot, bar plot, violin plot, etc
 
 ```R
 # Box plot
