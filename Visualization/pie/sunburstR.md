@@ -27,7 +27,7 @@ df_sb <- mtcars %>%
 ```
 ### Create a Sunburst
 
-```{r}
+```R
 df_sb %>% 
   sunburst() #this is a html widget
 ```
@@ -36,7 +36,7 @@ df_sb %>%
 
 ### Create a Sunburst
 
-```{r}
+```R
 df_sb %>% 
   sunburstR::sunburst(legend = FALSE,
                       #disable legend
