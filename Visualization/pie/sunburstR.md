@@ -1,0 +1,66 @@
+# sunburstR
+
+* package: sunburstR
+
+* data: mtcars
+
+```R
+devtools::install_github("timelyportfolio/sunburstR")
+library(tidyverse) 
+library(sunburstR) 
+```
+
+### Make the Data sunburst-able
+
+```r
+df_sb <- mtcars %>%
+  select(am, gear, carb) %>%
+  group_by(am, gear, carb) %>%
+  summarise(num = n()) %>%  
+  mutate(path = paste(paste0("Transmission Type: ",am),
+                      paste0("Number of forward gears: ", gear),
+                      paste0("Number of carburetors: ", carb),
+         sep="-")) %>%
+  #create a sunburst-able variable
+  ungroup() %>% #ungroup before selecting necessary columns
+  select(path, num)
+```
+### Create a Sunburst
+
+```{r}
+df_sb %>% 
+  sunburst() #this is a html widget
+```
+
+![sunburstR1](https://i.imgur.com/AGWQ1J6.png)
+
+### Create a Sunburst
+
+```{r}
+df_sb %>% 
+  sunburstR::sunburst(legend = FALSE,
+                      #disable legend
+                      color = list(domain=unique(unlist(strsplit(df_sb$path,"-"))),
+                                   range=RColorBrewer::brewer.pal(6,"Set2")[c(6,2,1,4,3,5)]),
+                      #manually set the color
+                      explanation = htmlwidgets::JS(
+'
+function(d){
+var explanation = [];
+var parent = d.parent;
+if(d.depth > 1){
+  while(parent){
+    if(parent.parent){
+      explanation.push(
+      (100*d.value/parent.value).toPrecision(3) + "%"
+      );
+    }
+    parent = parent.parent;
+  };
+}
+explanation.push((100*d.value/this).toPrecision(3) + "%");
+return explanation.join("<br/>");
+}'
+  )) #explain the percentage of each group
+```
+![sunburstR2](https://i.imgur.com/Z96kUfj.png)
