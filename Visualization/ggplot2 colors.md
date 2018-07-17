@@ -18,7 +18,8 @@ sp<-ggplot(mtcars, aes(x=wt, y=mpg, color=cyl)) + geom_point()
 
   ```R
   # Box plot
-  bp + scale_fill_hue(l=40, c=35)
+
+bp + scale_fill_hue(l=40, c=35)
   # Scatter plot
   sp + scale_color_hue(l=40, c=35)
   ```
@@ -60,6 +61,8 @@ sp + scale_color_manual(breaks = c("8", "6", "4"),
 ##### 1.3.1 Use RColorBrewer palettes
 
 <p>The color palettes available in the ***RColorBrewer*** package are described here : <a href="/english/wiki/colors-in-r">color in R</a>.</p>
+
+<p>Use `display.brewer.all()` to see all available choices in the package _RColorBrewer_</p>
 
 ```r
 # Box plot
